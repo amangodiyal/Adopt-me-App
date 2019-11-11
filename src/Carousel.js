@@ -24,6 +24,8 @@ class Carousel extends Component {
   }
 
   render() {
+    // throw new Error("aman has an error for you");
+
     const { photos, active } = this.state;
     return (
       <div className="carousel">

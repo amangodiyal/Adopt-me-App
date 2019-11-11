@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel.js";
+import ErrorBoundary from "./ErrorBoundary";
 
 class Details extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Details extends Component {
     };
   }
   componentDidMount() {
+    // throw Error("new error");
     pet
       .animal(+this.props.id)
       .then(({ animal }) => {
@@ -52,4 +54,12 @@ class Details extends Component {
   }
 }
 
-export default Details;
+// export default Details;
+export default function DetailsErrorBoundary(props) {
+  console.log(props);
+  return (
+    <ErrorBoundary>
+      <Details {...props} />
+    </ErrorBoundary>
+  );
+}
